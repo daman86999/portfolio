@@ -98,6 +98,7 @@ export interface Skill {
 export interface Certificate {
   name: string;
   issuer: string;
+  certificateLink?: string;
 }
 
 export interface Education {

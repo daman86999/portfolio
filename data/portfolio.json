@@ -270,15 +270,18 @@
   "certificates": [
     {
       "name": "Javascript Essentials",
-      "issuer": "LetsUpgrade"
+      "issuer": "LetsUpgrade",
+      "certificateLink": "https://letsupgrade-2019.web.app/#verify/LUJS0720A1055"
     },
     {
       "name": "Namaste React",
-      "issuer": "NamasteDev.com"
+      "issuer": "NamasteDev.com",
+      "certificateLink": "https://courses.namastedev.com/learn/certificate/7948015-142240"
     },
     {
       "name": "The Complete 2023 Web Development Bootcamp",
-      "issuer": "Udemy"
+      "issuer": "Udemy",
+      "certificateLink": "https://www.udemy.com/certificate/UC-90d882f8-93bc-4dee-9507-d4c448b28a1a/"
     }
   ],
   "education": [
