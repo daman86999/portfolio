@@ -1,0 +1,357 @@
+{
+  "meta": {
+    "title": "Damanpreet Singh — Frontend Developer",
+    "description": "Frontend Developer crafting high-performance UIs with Next.js & React.",
+    "url": "https://damanpreet.dev",
+    "ogImage": "/og.png"
+  },
+  "theme": {
+    "preset": "dark-purple",
+    "colors": {
+      "bg": "#07060f",
+      "bg2": "#0d0b1e",
+      "purple": "#7c3aed",
+      "purpleLight": "#a855f7",
+      "accent": "#e879f9",
+      "text": "#f0eeff",
+      "muted": "#8b80b0",
+      "card": "rgba(255,255,255,0.04)",
+      "border": "rgba(255,255,255,0.07)"
+    },
+    "fonts": {
+      "display": "Syne",
+      "body": "Space Grotesk",
+      "mono": "JetBrains Mono"
+    }
+  },
+  "nav": {
+    "logo": "DS.",
+    "links": [
+      {
+        "label": "home",
+        "href": "#home"
+      },
+      {
+        "label": "work",
+        "href": "#experience"
+      },
+      {
+        "label": "projects",
+        "href": "#projects"
+      },
+      {
+        "label": "skills",
+        "href": "#skills"
+      }
+    ],
+    "cta": {
+      "label": "Let's Talk →",
+      "href": "#contact"
+    }
+  },
+  "hero": {
+    "badge": "Available for opportunities",
+    "name": "Damanpreet",
+    "nameAccent": "Singh",
+    "title": "Frontend Developer",
+    "description": "Crafting high-performance UIs with Next.js & React. Turning complex data into elegant, scalable interfaces for industrial IoT and AI platforms.",
+    "avatarLetter": "D",
+    "floatingTags": [
+      "▸ Next.js",
+      "▸ React",
+      "▸ TypeScript"
+    ],
+    "cta": {
+      "primary": {
+        "label": "Get in Touch",
+        "href": "#contact"
+      },
+      "secondary": [
+        {
+          "label": "GitHub",
+          "href": "https://github.com/daman86999",
+          "icon": "github"
+        },
+        {
+          "label": "LinkedIn",
+          "href": "https://www.linkedin.com/in/damanpreet-singh-dev",
+          "icon": "linkedin"
+        }
+      ]
+    },
+    "resumeDownload": {
+      "label": "Download Resume",
+      "href": "/Damanpreet_Singh_Resume.pdf",
+      "filename": "Damanpreet_Singh_Resume.pdf"
+    }
+  },
+  "marquee": [
+    "React JS",
+    "Next.js",
+    "TypeScript",
+    "Tailwind CSS",
+    "GraphQL",
+    "Jest",
+    "Cypress",
+    "Zustand",
+    "Material UI",
+    "Git",
+    "Scss/Sass",
+    "DirectLine.js"
+  ],
+  "stats": [
+    {
+      "value": 3,
+      "suffix": "",
+      "label": "Years of Experience"
+    },
+    {
+      "value": 80,
+      "suffix": "+",
+      "label": "Bugs Resolved"
+    },
+    {
+      "value": 50,
+      "suffix": "%",
+      "label": "Faster Dev with Library"
+    }
+  ],
+  "experience": [
+    {
+      "company": "Infinite Uptime",
+      "role": "Frontend Developer",
+      "period": "08/2024 – Present",
+      "location": "Remote",
+      "locationEmoji": "🌐",
+      "tags": [
+        "Next.js",
+        "Tailwind CSS"
+      ],
+      "bullets": [
+        "Build and maintain scalable UI components for an industrial IoT monitoring platform using Next.js and Tailwind CSS, collaborating daily with backend engineers and product managers.",
+        "Solve complex UI state and data-rendering challenges on dashboards handling large real-time datasets.",
+        "Improved component reusability by refactoring shared UI elements, cutting redundant code across the codebase and accelerating new feature development.",
+        "Worked in an agile environment — sprint planning, code reviews, and cross-functional syncs to keep delivery on track."
+      ]
+    },
+    {
+      "company": "Celebal Technologies",
+      "role": "Associate Consultant",
+      "period": "05/2023 – 08/2024",
+      "location": "Jaipur, India",
+      "locationEmoji": "📍",
+      "tags": [
+        "React",
+        "DirectLine.js",
+        "Bot Framework"
+      ],
+      "bullets": [
+        "Spearheaded development of a cutting-edge MWP chatbot using React and BotFramework DirectLine.js.",
+        "Collaborated closely with cross-functional teams to translate requirements into efficient chatbot functionalities.",
+        "Implemented real-time communication between the chatbot and backend using DirectLine.js.",
+        "Designed dynamic UI components enhancing the chatbot's user experience and overall usability.",
+        "Utilized Git workflows to maintain code integrity and facilitate team collaboration."
+      ]
+    },
+    {
+      "company": "SysCloud Technologies",
+      "role": "Software Engineer",
+      "period": "08/2022 – 02/2023",
+      "location": "Chennai, India",
+      "locationEmoji": "📍",
+      "tags": [
+        "React",
+        "Jest",
+        "Cypress",
+        "TypeScript"
+      ],
+      "bullets": [
+        "Devised reusable and responsive components for the company's component library, decreasing redevelopment effort to 4%.",
+        "Diagnosed and resolved 80+ critical and high-level software bugs using modern technologies.",
+        "Reduced post-deployment bug percentage to 5% using Cypress and Jest.",
+        "Worked parallelly on 2+ projects without affecting efficiency and quality."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "icon": "🤖",
+      "title": "Konverto AI",
+      "description": "An innovative platform that empowers users to create, develop, and launch personalized chatbots without coding skills. Features a bot designing interface, configurable chatbot options, and scalable architecture.",
+      "stats": [
+        {
+          "label": "30% engagement ↑",
+          "emoji": "📈"
+        },
+        {
+          "label": "40% setup time ↓",
+          "emoji": "⚡"
+        },
+        {
+          "label": "20% codebase ↓",
+          "emoji": "📦"
+        }
+      ],
+      "tags": [
+        "React",
+        "Bot Framework",
+        "DirectLine.js"
+      ]
+    },
+    {
+      "icon": "🧩",
+      "title": "Syscloud Component Library",
+      "description": "A suite of standardized, customizable, and well-documented React components. Converted JSX to TypeScript, reducing runtime errors by 25%. Comprehensive documentation cut support requests by 40%.",
+      "stats": [
+        {
+          "label": "50% dev speed ↑",
+          "emoji": "🚀"
+        },
+        {
+          "label": "25% less errors",
+          "emoji": "🐛"
+        },
+        {
+          "label": "40% support ↓",
+          "emoji": "📚"
+        }
+      ],
+      "tags": [
+        "React",
+        "TypeScript",
+        "Component Library"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "label": "React JS",
+      "icon": "⚛️"
+    },
+    {
+      "label": "Next.js",
+      "icon": "▲"
+    },
+    {
+      "label": "TypeScript",
+      "icon": "🟦"
+    },
+    {
+      "label": "JavaScript",
+      "icon": "🟨"
+    },
+    {
+      "label": "Tailwind",
+      "icon": "🎨"
+    },
+    {
+      "label": "GraphQL",
+      "icon": "💠"
+    },
+    {
+      "label": "Scss/Sass",
+      "icon": "🎯"
+    },
+    {
+      "label": "Git",
+      "icon": "🌿"
+    },
+    {
+      "label": "Jest",
+      "icon": "🧪"
+    },
+    {
+      "label": "Cypress",
+      "icon": "🌲"
+    },
+    {
+      "label": "Zustand",
+      "icon": "🐻"
+    },
+    {
+      "label": "Material UI",
+      "icon": "🎭"
+    }
+  ],
+  "certificates": [
+    {
+      "name": "Javascript Essentials",
+      "issuer": "LetsUpgrade"
+    },
+    {
+      "name": "Namaste React",
+      "issuer": "NamasteDev.com"
+    },
+    {
+      "name": "The Complete 2023 Web Development Bootcamp",
+      "issuer": "Udemy"
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Technology — Computer Science and Engineering",
+      "institution": "Lovely Professional University",
+      "period": "08/2018 – 06/2022",
+      "location": "Phagwara"
+    },
+    {
+      "degree": "Class X – XII",
+      "institution": "Sanskriti KMV School",
+      "period": "03/2016 – 04/2018",
+      "location": "Jalandhar"
+    }
+  ],
+  "contact": {
+    "heading": "Let's Build",
+    "headingAccent": "Something.",
+    "subtext": "Open to frontend roles, freelance projects, and interesting conversations.",
+    "links": [
+      {
+        "label": "daman.086999@gmail.com",
+        "href": "mailto:daman.086999@gmail.com",
+        "icon": "email"
+      },
+      {
+        "label": "+91 8699985430",
+        "href": "tel:+918699985430",
+        "icon": "phone"
+      },
+      {
+        "label": "GitHub",
+        "href": "https://github.com/daman86999",
+        "icon": "github"
+      },
+      {
+        "label": "LinkedIn",
+        "href": "https://linkedin.com/in/damanpreet-singh-dev",
+        "icon": "linkedin"
+      }
+    ]
+  },
+  "footer": {
+    "text": "Built with Next.js & TypeScript · Damanpreet Singh · 2025"
+  },
+  "sections": {
+    "hero": {
+      "enabled": true
+    },
+    "marquee": {
+      "enabled": true
+    },
+    "stats": {
+      "enabled": true
+    },
+    "experience": {
+      "enabled": true
+    },
+    "projects": {
+      "enabled": true
+    },
+    "skills": {
+      "enabled": true
+    },
+    "contact": {
+      "enabled": true
+    }
+  }
+}

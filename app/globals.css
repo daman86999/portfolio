@@ -1,0 +1,221 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #07060f;
+  --color-bg2: #0d0b1e;
+  --color-purple: #7c3aed;
+  --color-purple-light: #a855f7;
+  --color-accent: #e879f9;
+  --color-text: #f0eeff;
+  --color-muted: #8b80b0;
+  --color-card: rgba(255, 255, 255, 0.04);
+  --color-border: rgba(255, 255, 255, 0.07);
+
+  --font-space-grotesk: "Space Grotesk", system-ui, sans-serif;
+  --font-syne: "Syne", system-ui, sans-serif;
+  --font-jetbrains-mono: "JetBrains Mono", monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-space-grotesk);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Noise texture overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* ─── Reveal animation ─── */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-d1 { transition-delay: 0.1s; }
+.reveal-d2 { transition-delay: 0.2s; }
+.reveal-d3 { transition-delay: 0.3s; }
+.reveal-d4 { transition-delay: 0.4s; }
+
+/* ─── Gradient text utility ─── */
+.gradient-text {
+  background: linear-gradient(
+    135deg,
+    var(--color-purple-light) 0%,
+    var(--color-accent) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Tag badge ─── */
+.tag-badge {
+  font-family: var(--font-jetbrains-mono);
+  font-size: 0.7rem;
+  background: rgba(124, 58, 237, 0.15);
+  color: var(--color-purple-light);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  border: 1px solid rgba(124, 58, 237, 0.2);
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb {
+  background: var(--color-purple);
+  border-radius: 3px;
+}
+
+/* ─── Marquee ─── */
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+
+/* ─── Spin conic ─── */
+@keyframes spin-conic {
+  to { transform: rotate(360deg); }
+}
+.animate-spin-conic {
+  animation: spin-conic 6s linear infinite;
+}
+
+/* ─── Float ─── */
+@keyframes float-orb {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(30px, -30px) scale(1.1); }
+}
+.animate-float { animation: float-orb 8s ease-in-out infinite alternate; }
+.animate-float-2 { animation: float-orb 10s ease-in-out infinite alternate-reverse; }
+.animate-float-3 { animation: float-orb 7s ease-in-out infinite alternate; }
+
+/* ─── Blink cursor ─── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.animate-blink { animation: blink 1s step-end infinite; }
+
+/* ─── Pulse dot ─── */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+.animate-pulse-dot { animation: pulse-dot 2s infinite; }
+
+/* ─── Slide down (nav) ─── */
+@keyframes slide-down {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-slide-down { animation: slide-down 0.8s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+/* ─── Fade up (hero content) ─── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up { animation: fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.animate-fade-up-d1 { animation: fade-up 1s 0.2s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.animate-fade-up-d2 { animation: fade-up 1s 0.35s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.animate-fade-up-d3 { animation: fade-up 1s 0.5s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.animate-fade-up-d4 { animation: fade-up 1s 0.65s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+/* ─── Slide left (floating tags) ─── */
+@keyframes slide-left {
+  from { opacity: 0; transform: translateX(30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.animate-slide-left-d1 { animation: slide-left 0.8s 1.2s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.animate-slide-left-d2 { animation: slide-left 0.8s 1.4s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.animate-slide-left-d3 { animation: slide-left 0.8s 1.6s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+/* ─── Fade in (avatar) ─── */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.animate-fade-in-late { animation: fade-in 1.2s 0.8s both; }
+
+/* ─── Exp card left border ─── */
+.exp-card-hover {
+  position: relative;
+  transition: border-color 0.3s, background 0.3s, transform 0.3s;
+}
+.exp-card-hover::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 100%;
+  background: linear-gradient(180deg, var(--color-purple), var(--color-accent));
+  opacity: 0;
+  transition: opacity 0.3s;
+  border-radius: 2px 0 0 2px;
+}
+.exp-card-hover:hover::before { opacity: 1; }
+.exp-card-hover:hover {
+  border-color: rgba(124, 58, 237, 0.4) !important;
+  background: rgba(124, 58, 237, 0.06) !important;
+  transform: translateX(4px);
+}
+
+/* ─── Project card bottom border ─── */
+.proj-card-hover {
+  position: relative;
+  transition: border-color 0.3s, background 0.3s, transform 0.3s;
+}
+.proj-card-hover::after {
+  content: "";
+  position: absolute;
+  bottom: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--color-purple), var(--color-accent));
+  transform: scaleX(0);
+  transition: transform 0.3s;
+  transform-origin: left;
+}
+.proj-card-hover:hover::after { transform: scaleX(1); }
+.proj-card-hover:hover {
+  border-color: rgba(124, 58, 237, 0.4) !important;
+  background: rgba(124, 58, 237, 0.06) !important;
+  transform: translateY(-4px);
+}
+
+/* ─── Custom cursor ─── */
+@media (pointer: fine) {
+  body { cursor: none; }
+  a, button, .skill-pill { cursor: none; }
+}
