@@ -50,17 +50,12 @@
     }
   },
   "hero": {
-    "badge": "Available for opportunities",
+    "openForoppurtunity": true,
     "name": "Damanpreet",
     "nameAccent": "Singh",
     "title": "Frontend Developer",
     "description": "Crafting high-performance UIs with Next.js & React. Turning complex data into elegant, scalable interfaces for industrial IoT and AI platforms.",
     "avatarLetter": "D",
-    "floatingTags": [
-      "▸ Next.js",
-      "▸ React",
-      "▸ TypeScript"
-    ],
     "cta": {
       "primary": {
         "label": "Get in Touch",
@@ -81,7 +76,7 @@
     },
     "resumeDownload": {
       "label": "Download Resume",
-      "href": "/Damanpreet_Singh_Resume.pdf",
+      "href": "https://app.flowcv.com/api/resumes/download?resumeId=371e6dfc-0be9-40ea-8904-a1c04a771bcb&previewPageCount=2",
       "filename": "Damanpreet_Singh_Resume.pdf"
     }
   },
@@ -96,8 +91,7 @@
     "Zustand",
     "Material UI",
     "Git",
-    "Scss/Sass",
-    "DirectLine.js"
+    "Scss/Sass"
   ],
   "stats": [
     {

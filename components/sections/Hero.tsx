@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { RESUME_DOWNLOAD_PATH } from "@/lib/resume-download-path";
 import type { Hero as HeroType } from "@/types/portfolio";
 import { GithubIcon, LinkedinIcon, DownloadIcon } from "@/components/ui/Icons";
 
@@ -54,19 +55,21 @@ export default function Hero({ hero }: HeroProps) {
       {/* Content */}
       <div className="relative z-10 max-w-2xl">
         {/* Badge */}
-        <div className="animate-fade-up-d1 inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full font-mono text-xs"
-          style={{
-            background: "rgba(124,58,237,0.15)",
-            border: "1px solid rgba(124,58,237,0.4)",
-            color: "var(--color-purple-light)",
-          }}
-        >
-          <span
-            className="w-1.5 h-1.5 rounded-full animate-pulse-dot"
-            style={{ background: "#22c55e", boxShadow: "0 0 6px #22c55e" }}
-          />
-          {hero.badge}
-        </div>
+        {hero.openForoppurtunity ? (
+          <div className="animate-fade-up-d1 inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full font-mono text-xs"
+            style={{
+              background: "rgba(124,58,237,0.15)",
+              border: "1px solid rgba(124,58,237,0.4)",
+              color: "var(--color-purple-light)",
+            }}
+          >
+            <span
+              className="w-1.5 h-1.5 rounded-full animate-pulse-dot"
+              style={{ background: "#22c55e", boxShadow: "0 0 6px #22c55e" }}
+            />
+            Available for opportunities
+          </div>
+        ) : null}
 
         {/* Name */}
         <h1
@@ -118,7 +121,7 @@ export default function Hero({ hero }: HeroProps) {
 
           {/* Resume download */}
           <a
-            href={hero.resumeDownload.href}
+            href={RESUME_DOWNLOAD_PATH}
             download={hero.resumeDownload.filename}
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all duration-200 hover:-translate-y-0.5"
             style={{
@@ -193,24 +196,6 @@ export default function Hero({ hero }: HeroProps) {
                 {hero.avatarLetter}
               </span>
             </div>
-          </div>
-
-          {/* Floating tags */}
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-full pl-4 flex flex-col gap-2">
-            {hero.floatingTags.map((tag, i) => (
-              <div
-                key={tag}
-                className={`animate-slide-left-d${i + 1} px-3 py-1.5 rounded-md font-mono text-xs whitespace-nowrap`}
-                style={{
-                  background: "rgba(13,11,30,0.9)",
-                  border: "1px solid var(--color-border)",
-                  borderLeft: "3px solid var(--color-purple-light)",
-                  color: "var(--color-muted)",
-                }}
-              >
-                {tag}
-              </div>
-            ))}
           </div>
         </div>
       </div>

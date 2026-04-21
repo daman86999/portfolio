@@ -1,5 +1,6 @@
 "use client";
 
+import { RESUME_DOWNLOAD_PATH } from "@/lib/resume-download-path";
 import type { Contact as ContactType, ResumeDownload } from "@/types/portfolio";
 import { IconByName, DownloadIcon } from "@/components/ui/Icons";
 
@@ -29,12 +30,6 @@ export default function Contact({ contact, resume }: ContactProps) {
       </div>
 
       <div className="relative z-10 max-w-3xl mx-auto">
-        <p
-          className="reveal font-mono text-xs tracking-widest uppercase mb-4"
-          style={{ color: "var(--color-purple-light)" }}
-        >
-          {"// get in touch"}
-        </p>
 
         <h2
           className="reveal font-display font-black tracking-tight leading-tight mb-6"
@@ -88,7 +83,7 @@ export default function Contact({ contact, resume }: ContactProps) {
         {/* Resume CTA */}
         <div className="reveal">
           <a
-            href={resume.href}
+            href={RESUME_DOWNLOAD_PATH}
             download={resume.filename}
             className="inline-flex items-center gap-2 text-sm font-semibold px-7 py-3.5 rounded-full text-white transition-all duration-200 hover:-translate-y-0.5"
             style={{

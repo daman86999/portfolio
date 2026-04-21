@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { RESUME_DOWNLOAD_PATH } from "@/lib/resume-download-path";
 import type { Nav, ResumeDownload } from "@/types/portfolio";
 import { DownloadIcon, MenuIcon, CloseIcon } from "@/components/ui/Icons";
 
@@ -59,7 +60,7 @@ export default function Navbar({ nav, resume }: NavbarProps) {
         {/* Desktop Right */}
         <div className="hidden md:flex items-center gap-3">
           <a
-            href={resume.href}
+            href={RESUME_DOWNLOAD_PATH}
             download={resume.filename}
             className="flex items-center gap-2 text-xs font-medium px-4 py-2 rounded-full transition-all duration-200"
             style={{
@@ -118,7 +119,7 @@ export default function Navbar({ nav, resume }: NavbarProps) {
             </Link>
           ))}
           <a
-            href={resume.href}
+            href={RESUME_DOWNLOAD_PATH}
             download={resume.filename}
             className="flex items-center gap-2 text-sm font-medium py-2"
             style={{ color: "var(--color-purple-light)" }}

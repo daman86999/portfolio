@@ -19,7 +19,6 @@ export default function Projects({ items }: ProjectsProps) {
         <div className="reveal mb-16">
           <p className="font-mono text-xs tracking-widest uppercase mb-3"
             style={{ color: "var(--color-purple-light)" }}>
-            {"// featured work"}
           </p>
           <h2
             className="font-display font-black tracking-tight leading-tight mb-4"

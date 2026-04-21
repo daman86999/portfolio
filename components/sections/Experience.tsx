@@ -12,7 +12,6 @@ export default function Experience({ items }: ExperienceProps) {
         <div className="reveal mb-16">
           <p className="font-mono text-xs tracking-widest uppercase mb-3"
             style={{ color: "var(--color-purple-light)" }}>
-            {"// work history"}
           </p>
           <h2
             className="font-display font-black tracking-tight leading-tight mb-4"

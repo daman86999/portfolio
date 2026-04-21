@@ -50,7 +50,7 @@ export interface ResumeDownload {
 }
 
 export interface Hero {
-  badge: string;
+  openForoppurtunity: boolean;
   name: string;
   nameAccent: string;
   title: string;

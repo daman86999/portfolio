@@ -23,7 +23,6 @@ export default function Skills({ skills, certificates, education }: SkillsProps)
         <div className="reveal mb-12">
           <p className="font-mono text-xs tracking-widest uppercase mb-3"
             style={{ color: "var(--color-purple-light)" }}>
-            {"// tech stack"}
           </p>
           <h2
             className="font-display font-black tracking-tight"
@@ -71,7 +70,6 @@ export default function Skills({ skills, certificates, education }: SkillsProps)
           <div className="reveal mb-6">
             <p className="font-mono text-xs tracking-widest uppercase mb-3"
               style={{ color: "var(--color-purple-light)" }}>
-              {"// certifications"}
             </p>
             <h3 className="font-display font-bold text-2xl">Certificates</h3>
           </div>
@@ -109,7 +107,6 @@ export default function Skills({ skills, certificates, education }: SkillsProps)
           <div className="reveal mb-6">
             <p className="font-mono text-xs tracking-widest uppercase mb-3"
               style={{ color: "var(--color-purple-light)" }}>
-              {"// education"}
             </p>
             <h3 className="font-display font-bold text-2xl">Education</h3>
           </div>
