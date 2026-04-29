@@ -96,18 +96,18 @@
   "stats": [
     {
       "value": 3,
-      "suffix": "",
+      "suffix": "+",
       "label": "Years of Experience"
     },
     {
-      "value": 80,
-      "suffix": "+",
-      "label": "Bugs Resolved"
+      "value": 404,
+      "suffix": "",
+      "label": "Bugs Fixed (and counting)"
     },
     {
-      "value": 50,
-      "suffix": "%",
-      "label": "Faster Dev with Library"
+      "value": 200,
+      "suffix": "+",
+      "label": "Reusable Components Built"
     }
   ],
   "experience": [

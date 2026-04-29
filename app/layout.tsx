@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Space_Grotesk, Syne, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { getPortfolioData } from "@/lib/portfolio";
+import Cursor from "@/components/ui/Cursor";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -48,6 +49,7 @@ export default function RootLayout({
         className={`${spaceGrotesk.variable} ${syne.variable} ${jetbrainsMono.variable} font-sans`}
       >
         {children}
+        <Cursor />
       </body>
     </html>
   );
