@@ -23,13 +23,17 @@ export default function Navbar({ nav, resume }: NavbarProps) {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 animate-slide-down transition-all duration-300 ${
-        scrolled ? "shadow-lg shadow-black/20" : ""
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 animate-slide-down transition-all duration-300`}
       style={{
         backdropFilter: "blur(20px)",
-        background: "rgba(7,6,15,0.75)",
-        borderBottom: "1px solid var(--color-border)",
+        background: scrolled ? "rgba(7,6,15,0.88)" : "rgba(7,6,15,0.6)",
+        borderBottom: scrolled
+          ? "1px solid rgba(124,58,237,0.4)"
+          : "1px solid var(--color-border)",
+        boxShadow: scrolled
+          ? "0 0 24px rgba(124,58,237,0.12), 0 1px 0 rgba(168,85,247,0.15)"
+          : "none",
+        transition: "background 0.3s, border-color 0.3s, box-shadow 0.3s",
       }}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">

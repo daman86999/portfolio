@@ -8,6 +8,7 @@
   --color-purple: #7c3aed;
   --color-purple-light: #a855f7;
   --color-accent: #e879f9;
+  --color-cyan: #22d3ee;
   --color-text: #f0eeff;
   --color-muted: #8b80b0;
   --color-card: rgba(255, 255, 255, 0.04);
@@ -40,15 +41,31 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Noise texture overlay */
+/* ─── Noise texture overlay ─── */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  z-index: 0;
+  z-index: 1;
   pointer-events: none;
-  opacity: 0.04;
+  opacity: 0.025;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* ─── Scanlines overlay ─── */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
 }
 
 /* ─── Reveal animation ─── */
@@ -79,6 +96,23 @@ body::before {
   background-clip: text;
 }
 
+/* ─── Holographic shimmer on gradient text ─── */
+.gradient-text-shimmer {
+  background: linear-gradient(
+    120deg,
+    var(--color-purple-light) 0%,
+    var(--color-accent) 30%,
+    #22d3ee 50%,
+    var(--color-accent) 70%,
+    var(--color-purple-light) 100%
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: holo-shift 5s ease infinite;
+}
+
 /* ─── Tag badge ─── */
 .tag-badge {
   font-family: var(--font-jetbrains-mono);
@@ -94,11 +128,15 @@ body::before {
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--color-bg); }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-purple);
+  background: linear-gradient(180deg, var(--color-purple), var(--color-accent));
   border-radius: 3px;
 }
 
-/* ─── Marquee ─── */
+/* ─────────────────────────────────────────────
+   KEYFRAMES
+───────────────────────────────────────────── */
+
+/* Marquee */
 @keyframes marquee {
   to { transform: translateX(-50%); }
 }
@@ -106,7 +144,7 @@ body::before {
   animation: marquee 25s linear infinite;
 }
 
-/* ─── Spin conic ─── */
+/* Spin conic */
 @keyframes spin-conic {
   to { transform: rotate(360deg); }
 }
@@ -114,48 +152,58 @@ body::before {
   animation: spin-conic 6s linear infinite;
 }
 
-/* ─── Float ─── */
+/* Float orbs */
 @keyframes float-orb {
   from { transform: translate(0, 0) scale(1); }
   to   { transform: translate(30px, -30px) scale(1.1); }
 }
-.animate-float { animation: float-orb 8s ease-in-out infinite alternate; }
-.animate-float-2 { animation: float-orb 10s ease-in-out infinite alternate-reverse; }
-.animate-float-3 { animation: float-orb 7s ease-in-out infinite alternate; }
+@keyframes float-orb-b {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(-20px, 25px) scale(1.08); }
+}
+@keyframes float-orb-c {
+  from { transform: translate(0, 0) scale(1) rotate(0deg); }
+  to   { transform: translate(15px, -20px) scale(1.12) rotate(15deg); }
+}
+.animate-float   { animation: float-orb   8s  ease-in-out infinite alternate; }
+.animate-float-2 { animation: float-orb-b 12s ease-in-out infinite alternate-reverse; }
+.animate-float-3 { animation: float-orb   7s  ease-in-out infinite alternate; }
+.animate-float-4 { animation: float-orb-c 10s ease-in-out infinite alternate; }
+.animate-float-5 { animation: float-orb-b 9s  ease-in-out infinite alternate-reverse; }
 
-/* ─── Blink cursor ─── */
+/* Blink cursor */
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50%       { opacity: 0; }
 }
 .animate-blink { animation: blink 1s step-end infinite; }
 
-/* ─── Pulse dot ─── */
+/* Pulse dot */
 @keyframes pulse-dot {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0.4; }
+  0%, 100% { opacity: 1; box-shadow: 0 0 6px #22c55e, 0 0 12px #22c55e44; }
+  50%       { opacity: 0.5; box-shadow: 0 0 2px #22c55e; }
 }
 .animate-pulse-dot { animation: pulse-dot 2s infinite; }
 
-/* ─── Slide down (nav) ─── */
+/* Slide down (nav) */
 @keyframes slide-down {
   from { opacity: 0; transform: translateY(-20px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 .animate-slide-down { animation: slide-down 0.8s cubic-bezier(0.16, 1, 0.3, 1) both; }
 
-/* ─── Fade up (hero content) ─── */
+/* Fade up (hero content) */
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(30px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-.animate-fade-up { animation: fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) both; }
-.animate-fade-up-d1 { animation: fade-up 1s 0.2s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.animate-fade-up    { animation: fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.animate-fade-up-d1 { animation: fade-up 1s 0.2s  cubic-bezier(0.16, 1, 0.3, 1) both; }
 .animate-fade-up-d2 { animation: fade-up 1s 0.35s cubic-bezier(0.16, 1, 0.3, 1) both; }
-.animate-fade-up-d3 { animation: fade-up 1s 0.5s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.animate-fade-up-d3 { animation: fade-up 1s 0.5s  cubic-bezier(0.16, 1, 0.3, 1) both; }
 .animate-fade-up-d4 { animation: fade-up 1s 0.65s cubic-bezier(0.16, 1, 0.3, 1) both; }
 
-/* ─── Slide left (floating tags) ─── */
+/* Slide left (floating tags) */
 @keyframes slide-left {
   from { opacity: 0; transform: translateX(30px); }
   to   { opacity: 1; transform: translateX(0); }
@@ -164,17 +212,101 @@ body::before {
 .animate-slide-left-d2 { animation: slide-left 0.8s 1.4s cubic-bezier(0.16, 1, 0.3, 1) both; }
 .animate-slide-left-d3 { animation: slide-left 0.8s 1.6s cubic-bezier(0.16, 1, 0.3, 1) both; }
 
-/* ─── Fade in (avatar) ─── */
+/* Fade in (avatar) */
 @keyframes fade-in {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
 .animate-fade-in-late { animation: fade-in 1.2s 0.8s both; }
 
+/* ─── Holographic shimmer ─── */
+@keyframes holo-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ─── Neon border pulse ─── */
+@keyframes neon-pulse {
+  0%, 100% { box-shadow: 0 0 8px rgba(124,58,237,0.4), 0 0 20px rgba(124,58,237,0.2); }
+  50%       { box-shadow: 0 0 16px rgba(168,85,247,0.7), 0 0 40px rgba(232,121,249,0.3), 0 0 60px rgba(124,58,237,0.15); }
+}
+.animate-neon-pulse { animation: neon-pulse 3s ease-in-out infinite; }
+
+/* ─── Glitch text ─── */
+@keyframes glitch-clip {
+  0%   { clip-path: inset(0 0 98% 0); transform: translate(-2px, 0); }
+  10%  { clip-path: inset(30% 0 50% 0); transform: translate(2px, 0); }
+  20%  { clip-path: inset(70% 0 10% 0); transform: translate(-1px, 0); }
+  30%  { clip-path: inset(10% 0 80% 0); transform: translate(0, 1px); }
+  40%  { clip-path: inset(50% 0 40% 0); transform: translate(1px, 0); }
+  50%  { clip-path: inset(0 0 0 0); transform: translate(0, 0); }
+  100% { clip-path: inset(0 0 0 0); transform: translate(0, 0); }
+}
+@keyframes glitch-clip2 {
+  0%   { clip-path: inset(80% 0 5% 0); transform: translate(2px, 0); }
+  15%  { clip-path: inset(20% 0 60% 0); transform: translate(-2px, 0); }
+  30%  { clip-path: inset(60% 0 20% 0); transform: translate(1px, 0); }
+  45%  { clip-path: inset(5% 0 90% 0); transform: translate(-1px, 0); }
+  55%  { clip-path: inset(0 0 0 0); transform: translate(0, 0); }
+  100% { clip-path: inset(0 0 0 0); transform: translate(0, 0); }
+}
+
+.glitch-wrapper {
+  position: relative;
+  display: inline-block;
+}
+.glitch-wrapper::before,
+.glitch-wrapper::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+}
+.glitch-wrapper::before {
+  color: var(--color-cyan);
+  opacity: 0.6;
+  animation: glitch-clip 8s infinite linear;
+}
+.glitch-wrapper::after {
+  color: var(--color-accent);
+  opacity: 0.5;
+  animation: glitch-clip2 8s 0.5s infinite linear;
+}
+
+/* ─── Rotate ring ─── */
+@keyframes rotate-ring {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes rotate-ring-rev {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+.animate-rotate-ring     { animation: rotate-ring     12s linear infinite; }
+.animate-rotate-ring-rev { animation: rotate-ring-rev 8s  linear infinite; }
+
+/* ─── Corner bracket shimmer ─── */
+@keyframes corner-glow {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 1; }
+}
+.animate-corner-glow { animation: corner-glow 2.5s ease-in-out infinite; }
+
+/* ─── Data scan line ─── */
+@keyframes scan-line {
+  0%   { transform: translateY(-100%); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateY(400%); opacity: 0; }
+}
+.animate-scan-line { animation: scan-line 4s ease-in-out infinite; }
+
 /* ─── Exp card left border ─── */
 .exp-card-hover {
   position: relative;
-  transition: border-color 0.3s, background 0.3s, transform 0.3s;
+  transition: border-color 0.3s, background 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 .exp-card-hover::before {
   content: "";
@@ -191,12 +323,13 @@ body::before {
   border-color: rgba(124, 58, 237, 0.4) !important;
   background: rgba(124, 58, 237, 0.06) !important;
   transform: translateX(4px);
+  box-shadow: 0 0 20px rgba(124,58,237,0.1), inset 0 0 20px rgba(124,58,237,0.03);
 }
 
 /* ─── Project card bottom border ─── */
 .proj-card-hover {
   position: relative;
-  transition: border-color 0.3s, background 0.3s, transform 0.3s;
+  transition: border-color 0.3s, background 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 .proj-card-hover::after {
   content: "";
@@ -212,6 +345,29 @@ body::before {
   border-color: rgba(124, 58, 237, 0.4) !important;
   background: rgba(124, 58, 237, 0.06) !important;
   transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(124,58,237,0.15), 0 0 0 1px rgba(124,58,237,0.1);
+}
+
+/* ─── Skill pill glow ─── */
+.skill-pill {
+  transition: all 0.25s ease;
+}
+.skill-pill:hover {
+  box-shadow: 0 0 16px rgba(124,58,237,0.25), inset 0 0 12px rgba(124,58,237,0.08);
+}
+
+/* ─── Hex grid background (for skills section) ─── */
+@keyframes hex-pulse {
+  0%, 100% { opacity: 0.03; }
+  50%       { opacity: 0.07; }
+}
+
+/* ─── Section divider glow line ─── */
+.glow-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-purple), var(--color-accent), var(--color-purple), transparent);
+  opacity: 0.35;
+  animation: neon-pulse 4s ease-in-out infinite;
 }
 
 /* ─── Custom cursor ─── */
