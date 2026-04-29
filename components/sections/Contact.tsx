@@ -15,21 +15,32 @@ export default function Contact({ contact, resume }: ContactProps) {
       id="contact"
       className="relative px-6 md:px-[5%] py-28 text-center overflow-hidden"
     >
-      {/* Radial glow */}
+      {/* Radial glow – large */}
       <div
         className="pointer-events-none absolute inset-0 flex items-center justify-center"
         aria-hidden
       >
         <div
-          className="w-[600px] h-[600px] rounded-full"
+          className="w-[700px] h-[700px] rounded-full animate-float-2"
           style={{
             background:
-              "radial-gradient(circle, rgba(124,58,237,0.1) 0%, transparent 70%)",
+              "radial-gradient(circle, rgba(124,58,237,0.13) 0%, rgba(232,121,249,0.06) 40%, transparent 70%)",
+            filter: "blur(40px)",
           }}
         />
       </div>
 
+
+
       <div className="relative z-10 max-w-3xl mx-auto">
+
+        {/* HUD label */}
+        <p className="reveal font-mono text-xs tracking-widest uppercase mb-6 flex items-center justify-center gap-2"
+          style={{ color: "var(--color-purple-light)" }}>
+          <span className="inline-block w-8 h-px" style={{ background: "var(--color-purple-light)" }} />
+          Get in touch
+          <span className="inline-block w-8 h-px" style={{ background: "var(--color-purple-light)" }} />
+        </p>
 
         <h2
           className="reveal font-display font-black tracking-tight leading-tight mb-6"
@@ -37,7 +48,7 @@ export default function Contact({ contact, resume }: ContactProps) {
         >
           {contact.heading}
           <br />
-          <span className="gradient-text">{contact.headingAccent}</span>
+          <span className="gradient-text-shimmer">{contact.headingAccent}</span>
         </h2>
 
         <p
@@ -48,7 +59,7 @@ export default function Contact({ contact, resume }: ContactProps) {
         </p>
 
         {/* Links */}
-        <div className="reveal flex flex-wrap gap-3 justify-center mb-6">
+        <div className="reveal flex flex-wrap gap-3 justify-center mb-8">
           {contact.links.map((link) => (
             <a
               key={link.href}
@@ -60,18 +71,21 @@ export default function Contact({ contact, resume }: ContactProps) {
                 background: "var(--color-card)",
                 border: "1px solid var(--color-border)",
                 color: "var(--color-text)",
+                backdropFilter: "blur(8px)",
               }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget as HTMLElement;
-                el.style.borderColor = "var(--color-purple-light)";
+                el.style.borderColor = "rgba(168,85,247,0.55)";
                 el.style.background = "rgba(124,58,237,0.1)";
-                el.style.transform = "translateY(-2px)";
+                el.style.transform = "translateY(-3px)";
+                el.style.boxShadow = "0 8px 24px rgba(124,58,237,0.15)";
               }}
               onMouseLeave={(e) => {
                 const el = e.currentTarget as HTMLElement;
                 el.style.borderColor = "var(--color-border)";
                 el.style.background = "var(--color-card)";
                 el.style.transform = "translateY(0)";
+                el.style.boxShadow = "none";
               }}
             >
               <IconByName name={link.icon} size={15} />
@@ -85,10 +99,16 @@ export default function Contact({ contact, resume }: ContactProps) {
           <a
             href={RESUME_DOWNLOAD_PATH}
             download={resume.filename}
-            className="inline-flex items-center gap-2 text-sm font-semibold px-7 py-3.5 rounded-full text-white transition-all duration-200 hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2 text-sm font-semibold px-7 py-3.5 rounded-full text-white transition-all duration-200 hover:-translate-y-0.5 animate-neon-pulse"
             style={{
               background: "linear-gradient(135deg, var(--color-purple), var(--color-accent))",
-              boxShadow: "0 0 30px rgba(124,58,237,0.25)",
+              boxShadow: "0 0 30px rgba(124,58,237,0.3)",
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLElement).style.boxShadow = "0 0 50px rgba(124,58,237,0.55), 0 0 80px rgba(232,121,249,0.2)";
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLElement).style.boxShadow = "0 0 30px rgba(124,58,237,0.3)";
             }}
           >
             <DownloadIcon size={15} />

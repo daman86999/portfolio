@@ -1,5 +1,6 @@
 import { getPortfolioData } from "@/lib/portfolio";
 import Cursor from "@/components/ui/Cursor";
+import Background from "@/components/ui/Background";
 import Navbar from "@/components/sections/Navbar";
 import Hero from "@/components/sections/Hero";
 import Marquee from "@/components/sections/Marquee";
@@ -18,20 +19,49 @@ export default function Home() {
 
   return (
     <ThemeProvider colors={data.theme.colors}>
+      {/* Global animated canvas background */}
+      <Background />
+
       <Cursor />
       <RevealInit />
+
       {sections.hero?.enabled && <Navbar nav={data.nav} resume={data.hero.resumeDownload} />}
-      <main>
+
+      <main className="relative z-10">
         {sections.hero?.enabled     && <Hero hero={data.hero} />}
         {sections.marquee?.enabled  && <Marquee items={data.marquee} />}
-        {sections.stats?.enabled    && <Stats stats={data.stats} />}
-        {sections.experience?.enabled && <Experience items={data.experience} />}
-        {sections.projects?.enabled && <Projects items={data.projects} />}
-        {sections.skills?.enabled   && (
-          <Skills skills={data.skills} certificates={data.certificates} education={data.education} />
+        {sections.stats?.enabled    && (
+          <>
+            <div className="glow-divider mx-[5%]" />
+            <Stats stats={data.stats} />
+          </>
         )}
-        {sections.contact?.enabled  && <Contact contact={data.contact} resume={data.hero.resumeDownload} />}
+        {sections.experience?.enabled && (
+          <>
+            <div className="glow-divider mx-[5%]" />
+            <Experience items={data.experience} />
+          </>
+        )}
+        {sections.projects?.enabled && (
+          <>
+            <div className="glow-divider mx-[5%]" />
+            <Projects items={data.projects} />
+          </>
+        )}
+        {sections.skills?.enabled   && (
+          <>
+            <div className="glow-divider mx-[5%]" />
+            <Skills skills={data.skills} certificates={data.certificates} education={data.education} />
+          </>
+        )}
+        {sections.contact?.enabled  && (
+          <>
+            <div className="glow-divider mx-[5%]" />
+            <Contact contact={data.contact} resume={data.hero.resumeDownload} />
+          </>
+        )}
       </main>
+
       <Footer text={data.footer.text} />
     </ThemeProvider>
   );

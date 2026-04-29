@@ -13,28 +13,39 @@ export default function Skills({ skills, certificates, education }: SkillsProps)
   return (
     <section
       id="skills"
-      className="px-6 md:px-[5%] py-28"
+      className="relative px-6 md:px-[5%] py-28 overflow-hidden"
       style={{
         background:
-          "linear-gradient(180deg,transparent,rgba(124,58,237,0.04),transparent)",
+          "linear-gradient(180deg,transparent,rgba(124,58,237,0.05),rgba(34,211,238,0.02),transparent)",
       }}
     >
+      {/* Accent orb */}
+      <div
+        className="pointer-events-none absolute -right-32 top-1/3 w-[450px] h-[450px] rounded-full"
+        style={{
+          background: "radial-gradient(circle, rgba(34,211,238,0.06) 0%, transparent 70%)",
+          filter: "blur(60px)",
+        }}
+        aria-hidden
+      />
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
-        <div className="reveal mb-12">
-          <p className="font-mono text-xs tracking-widest uppercase mb-3"
+        <div className="reveal mb-12 relative z-10">
+          <p className="font-mono text-xs tracking-widest uppercase mb-3 flex items-center gap-2"
             style={{ color: "var(--color-purple-light)" }}>
+            <span className="inline-block w-8 h-px" style={{ background: "var(--color-purple-light)" }} />
+            Tech Stack
           </p>
           <h2
             className="font-display font-black tracking-tight"
             style={{ fontSize: "clamp(2rem,4vw,3.2rem)" }}
           >
-            Skills
+            Skills &amp; <span className="gradient-text">Expertise</span>
           </h2>
         </div>
 
         {/* Skills grid */}
-        <div className="reveal grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 mb-20">
+        <div className="reveal grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 mb-20 relative z-10">
           {skills.map((skill) => (
             <div
               key={skill.label}
@@ -67,10 +78,12 @@ export default function Skills({ skills, certificates, education }: SkillsProps)
         </div>
 
         {/* Certificates */}
-        <div className="mb-16">
+        <div className="mb-16 relative z-10">
           <div className="reveal mb-6">
-            <p className="font-mono text-xs tracking-widest uppercase mb-3"
+            <p className="font-mono text-xs tracking-widest uppercase mb-3 flex items-center gap-2"
               style={{ color: "var(--color-purple-light)" }}>
+              <span className="inline-block w-6 h-px" style={{ background: "var(--color-purple-light)" }} />
+              Credentials
             </p>
             <h3 className="font-display font-bold text-2xl">Certificates</h3>
           </div>
@@ -125,10 +138,12 @@ export default function Skills({ skills, certificates, education }: SkillsProps)
         </div>
 
         {/* Education */}
-        <div>
+        <div className="relative z-10">
           <div className="reveal mb-6">
-            <p className="font-mono text-xs tracking-widest uppercase mb-3"
+            <p className="font-mono text-xs tracking-widest uppercase mb-3 flex items-center gap-2"
               style={{ color: "var(--color-purple-light)" }}>
+              <span className="inline-block w-6 h-px" style={{ background: "var(--color-purple-light)" }} />
+              Academia
             </p>
             <h3 className="font-display font-bold text-2xl">Education</h3>
           </div>
