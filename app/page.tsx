@@ -1,5 +1,4 @@
 import { getPortfolioData } from "@/lib/portfolio";
-import Cursor from "@/components/ui/Cursor";
 import Navbar from "@/components/sections/Navbar";
 import Hero from "@/components/sections/Hero";
 import Marquee from "@/components/sections/Marquee";
@@ -18,7 +17,6 @@ export default function Home() {
 
   return (
     <ThemeProvider colors={data.theme.colors}>
-      <Cursor />
       <RevealInit />
       {sections.hero?.enabled && <Navbar nav={data.nav} resume={data.hero.resumeDownload} />}
       <main>
