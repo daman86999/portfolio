@@ -50,10 +50,8 @@ export default function Navbar({ nav, resume }: NavbarProps) {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="font-mono text-xs tracking-wide transition-colors duration-200"
+                className="nav-link font-mono text-xs tracking-wide"
                 style={{ color: "var(--color-muted)" }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-text)")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-muted)")}
               >
                 {link.label}
               </Link>
@@ -66,18 +64,10 @@ export default function Navbar({ nav, resume }: NavbarProps) {
           <a
             href={RESUME_DOWNLOAD_PATH}
             download={resume.filename}
-            className="flex items-center gap-2 text-xs font-medium px-4 py-2 rounded-full transition-all duration-200"
+            className="btn-nav-outline flex items-center gap-2 text-xs font-medium px-4 py-2 rounded-full"
             style={{
               color: "var(--color-muted)",
               border: "1px solid var(--color-border)",
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.borderColor = "var(--color-purple-light)";
-              (e.currentTarget as HTMLAnchorElement).style.color = "var(--color-text)";
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.borderColor = "var(--color-border)";
-              (e.currentTarget as HTMLAnchorElement).style.color = "var(--color-muted)";
             }}
           >
             <DownloadIcon size={13} />

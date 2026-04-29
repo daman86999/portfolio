@@ -66,26 +66,12 @@ export default function Contact({ contact, resume }: ContactProps) {
               href={link.href}
               target={link.href.startsWith("http") ? "_blank" : undefined}
               rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-              className="inline-flex items-center gap-2 text-sm font-medium px-5 py-3 rounded-xl transition-all duration-200"
+              className="contact-link inline-flex items-center gap-2 text-sm font-medium px-5 py-3 rounded-xl"
               style={{
                 background: "var(--color-card)",
                 border: "1px solid var(--color-border)",
                 color: "var(--color-text)",
                 backdropFilter: "blur(8px)",
-              }}
-              onMouseEnter={(e) => {
-                const el = e.currentTarget as HTMLElement;
-                el.style.borderColor = "rgba(168,85,247,0.55)";
-                el.style.background = "rgba(124,58,237,0.1)";
-                el.style.transform = "translateY(-3px)";
-                el.style.boxShadow = "0 8px 24px rgba(124,58,237,0.15)";
-              }}
-              onMouseLeave={(e) => {
-                const el = e.currentTarget as HTMLElement;
-                el.style.borderColor = "var(--color-border)";
-                el.style.background = "var(--color-card)";
-                el.style.transform = "translateY(0)";
-                el.style.boxShadow = "none";
               }}
             >
               <IconByName name={link.icon} size={15} />
@@ -99,16 +85,9 @@ export default function Contact({ contact, resume }: ContactProps) {
           <a
             href={RESUME_DOWNLOAD_PATH}
             download={resume.filename}
-            className="inline-flex items-center gap-2 text-sm font-semibold px-7 py-3.5 rounded-full text-white transition-all duration-200 hover:-translate-y-0.5 animate-neon-pulse"
+            className="btn-primary-cta inline-flex items-center gap-2 text-sm font-semibold px-7 py-3.5 rounded-full text-white animate-neon-pulse"
             style={{
               background: "linear-gradient(135deg, var(--color-purple), var(--color-accent))",
-              boxShadow: "0 0 30px rgba(124,58,237,0.3)",
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLElement).style.boxShadow = "0 0 50px rgba(124,58,237,0.55), 0 0 80px rgba(232,121,249,0.2)";
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLElement).style.boxShadow = "0 0 30px rgba(124,58,237,0.3)";
             }}
           >
             <DownloadIcon size={15} />
