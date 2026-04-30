@@ -184,7 +184,7 @@ export default function Hero({ hero }: HeroProps) {
         </div>
 
         {/* ── Right Futuristic Holographic Terminal (Extra Large Screens) ── */}
-        <div className="hidden lg:flex relative w-full max-w-[400px] xl:max-w-[500px] h-[400px] xl:h-[450px] flex-shrink-0 items-center justify-center animate-fade-in-late perspective-1000 z-0">
+        <div className="hidden xl:flex relative w-full max-w-[400px] xl:max-w-[500px] h-[400px] xl:h-[450px] flex-shrink-0 items-center justify-center animate-fade-in-late perspective-1000 z-0">
 
           {/* Background glows for depth */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-purple-500/10 rounded-full blur-[80px] pointer-events-none" />
