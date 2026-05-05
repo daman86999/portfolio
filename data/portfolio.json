@@ -56,6 +56,7 @@
     "title": "Frontend Developer",
     "description": "Crafting high-performance UIs with Next.js & React. Turning complex data into elegant, scalable interfaces for industrial IoT and AI platforms.",
     "avatarLetter": "D",
+    "floatingTags": ["Next.js", "React", "TypeScript"],
     "cta": {
       "primary": {
         "label": "Get in Touch",

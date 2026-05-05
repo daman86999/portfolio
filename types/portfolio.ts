@@ -56,6 +56,7 @@ export interface Hero {
   title: string;
   description: string;
   avatarLetter: string;
+  floatingTags?: string[];
   cta: HeroCta;
   resumeDownload: ResumeDownload;
 }
