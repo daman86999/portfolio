@@ -1,6 +1,6 @@
 # Damanpreet Singh — Portfolio
 
-A production-ready **Next.js 15 + TypeScript** portfolio website with a fully configurable UI driven by a single JSON file.
+A production-ready **Next.js 16 + TypeScript** portfolio website with a fully configurable UI driven by a single JSON file.
 
 ---
 
@@ -178,7 +178,7 @@ npx vercel
 
 ## ✨ Features
 
-- ⚡ **Next.js 15 App Router** with TypeScript
+- ⚡ **Next.js 16 App Router** with TypeScript
 - 🎨 **JSON-configurable** — change everything from `data/portfolio.json`
 - 🌙 **Dark purple theme** with CSS variables (swap colors via JSON)
 - 🎭 **Custom animated cursor** with hover magnetic effect
@@ -190,3 +190,41 @@ npx vercel
 - 📥 **Resume download** button (Hero + Navbar + Contact)
 - 🔀 **Section toggles** — enable/disable any section from JSON
 - 🚀 **Vercel-ready** zero-config deployment
+
+---
+
+## 🛠️ Tools & Technologies Used
+
+- **Core Framework**: Next.js 16 (App Router)
+ - **UI Library**: React 19
+- **Styling**: Tailwind CSS (with PostCSS and Autoprefixer)
+- **Language**: TypeScript (Strict typing for robust components and data structures)
+- **Linting/Formatting**: ESLint
+- **Version Control**: Git & GitHub
+- **Deployment**: Vercel (Zero-config deployment)
+
+---
+
+## 📝 Development Process
+
+The creation of this portfolio website followed an iterative, design-first approach, focusing heavily on modern aesthetics, modularity, and maintainability.
+
+### 1. Architecture & "No-Code" CMS Strategy
+- **JSON-Driven Content**: Early in development, a decision was made to extract all content (text, links, theme colors, section toggles) into a single `data/portfolio.json` file. This acts as a lightweight CMS, allowing updates without digging into React components.
+- **Component Modularity**: The codebase was split into specific `sections` (Hero, Experience, Projects) and reusable `ui` primitives (Cursor, ThemeProvider, RevealInit) for excellent code hygiene.
+
+### 2. Premium & Futuristic UI/UX
+- **Design System Setup**: Implemented a dark, "futuristic" aesthetic with carefully selected colors (`purple`, `accent`, `muted`) stored as CSS variables.
+- **Interactive Elements**: Built custom micro-interactions like a magnetic cursor and scroll-reveal animations to make the site feel responsive and alive.
+- **Visual Refinement**: Iteratively refined the UI by removing visually noisy elements (like HUD brackets and scan lines) and replacing them with elegant alternatives, ensuring the core "constellation" background stood out clearly.
+
+### 3. Refactoring & Optimization
+- **Tailwind Migration**: Transitioned complex, manually-managed inline styles (such as complex box shadows and hover transitions) directly into Tailwind utility classes (e.g., `hover:shadow-xl`), resulting in cleaner, declarative component structures.
+- **Responsive Design Fixes**: Constantly iterated on mobile-first responsiveness, ensuring that grids, flexboxes, and text sizes adapted beautifully to everything from mobile devices to 4k monitors.
+
+### 4. Layout Enhancements (Extra-Large Screens)
+- **Hero Section Overhaul**: Specifically optimized the site for ultra-wide displays by transforming the Hero section into a dual-column layout. A visually striking "Glassmorphic Code Terminal" graphic was implemented on the right side to balance the text content on the left, preventing awkward empty spaces on larger viewports.
+
+### 5. Deployment & Version Control
+- **Git Troubleshooting**: Addressed and resolved Git push permission issues, ensuring a smooth continuous integration pipeline.
+- **Vercel Hosting**: Set up direct deployment to Vercel for fast, global edge delivery of the Next.js application.

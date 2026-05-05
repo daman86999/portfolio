@@ -49,26 +49,10 @@ export default function Skills({ skills, certificates, education }: SkillsProps)
           {skills.map((skill) => (
             <div
               key={skill.label}
-              className="skill-pill rounded-xl py-4 px-2 text-center text-sm font-medium transition-all duration-250 cursor-default"
+              className="skill-pill rounded-xl py-4 px-2 text-center text-sm font-medium cursor-default"
               style={{
                 background: "var(--color-card)",
                 border: "1px solid var(--color-border)",
-              }}
-              onMouseEnter={(e) => {
-                const el = e.currentTarget as HTMLElement;
-                el.style.borderColor = "var(--color-purple-light)";
-                el.style.background = "rgba(124,58,237,0.12)";
-                el.style.color = "var(--color-purple-light)";
-                el.style.transform = "translateY(-3px)";
-                el.style.boxShadow = "0 8px 24px rgba(124,58,237,0.15)";
-              }}
-              onMouseLeave={(e) => {
-                const el = e.currentTarget as HTMLElement;
-                el.style.borderColor = "var(--color-border)";
-                el.style.background = "var(--color-card)";
-                el.style.color = "var(--color-text)";
-                el.style.transform = "translateY(0)";
-                el.style.boxShadow = "none";
               }}
             >
               <span className="block text-2xl mb-2 leading-none">{skill.icon}</span>
@@ -89,23 +73,11 @@ export default function Skills({ skills, certificates, education }: SkillsProps)
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {certificates.map((cert, i) => {
-              const cardClass = `reveal reveal-d${i + 1} rounded-xl p-5 transition-all duration-200 block text-inherit no-underline`;
+              const cardClass = `card-hover reveal reveal-d${i + 1} rounded-xl p-5 block text-inherit no-underline`;
               const cardStyle = {
                 background: "var(--color-card)",
                 border: "1px solid var(--color-border)",
               } as const;
-              const hoverHandlers = {
-                onMouseEnter: (e: MouseEvent<HTMLElement>) => {
-                  const el = e.currentTarget;
-                  el.style.borderColor = "rgba(124,58,237,0.4)";
-                  el.style.background = "rgba(124,58,237,0.06)";
-                },
-                onMouseLeave: (e: MouseEvent<HTMLElement>) => {
-                  const el = e.currentTarget;
-                  el.style.borderColor = "var(--color-border)";
-                  el.style.background = "var(--color-card)";
-                },
-              };
 
               const inner = (
                 <>
@@ -124,12 +96,11 @@ export default function Skills({ skills, certificates, education }: SkillsProps)
                   rel="noopener noreferrer"
                   className={`${cardClass} cursor-pointer`}
                   style={cardStyle}
-                  {...hoverHandlers}
                 >
                   {inner}
                 </a>
               ) : (
-                <div key={cert.name} className={cardClass} style={cardStyle} {...hoverHandlers}>
+                <div key={cert.name} className={cardClass} style={cardStyle}>
                   {inner}
                 </div>
               );
@@ -151,20 +122,10 @@ export default function Skills({ skills, certificates, education }: SkillsProps)
             {education.map((edu, i) => (
               <div
                 key={edu.institution}
-                className={`reveal reveal-d${i + 1} rounded-xl p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 transition-all duration-200`}
+                className={`card-hover reveal reveal-d${i + 1} rounded-xl p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3`}
                 style={{
                   background: "var(--color-card)",
                   border: "1px solid var(--color-border)",
-                }}
-                onMouseEnter={(e) => {
-                  const el = e.currentTarget as HTMLElement;
-                  el.style.borderColor = "rgba(124,58,237,0.4)";
-                  el.style.background = "rgba(124,58,237,0.06)";
-                }}
-                onMouseLeave={(e) => {
-                  const el = e.currentTarget as HTMLElement;
-                  el.style.borderColor = "var(--color-border)";
-                  el.style.background = "var(--color-card)";
                 }}
               >
                 <div>
