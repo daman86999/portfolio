@@ -227,18 +227,18 @@ export default function Hero({ hero }: HeroProps) {
                 <div><span className="text-purple-400">const</span> <span className="text-cyan-300">developer</span> = {'{'}</div>
 
                 <div className="pl-6 flex flex-col gap-1">
-                  <div><span className="text-muted">name:</span> <span className="text-accent">"{hero.name}"</span>,</div>
-                  <div><span className="text-muted">status:</span> <span className="text-green-400">"Online"</span>,</div>
+                  <div><span className="text-muted">name:</span> <span className="text-accent">{`"${hero.name}"`}</span>,</div>
+                  <div><span className="text-muted">status:</span> <span className="text-green-400">{`"Online"`}</span>,</div>
                   <div><span className="text-muted">expertise:</span> {'['}</div>
                   <div className="pl-6 text-accent">
-                    "Next.js", "React", "TypeScript"
+                    {`"Next.js", "React", "TypeScript"`}
                   </div>
                   <div>{']'},</div>
 
                   <div className="mt-2"><span className="text-muted">current_focus:</span> {'{'}</div>
                   <div className="pl-6 flex flex-col">
-                    <div><span className="text-muted">mission:</span> <span className="text-cyan-300">"Building high-performance UIs"</span>,</div>
-                    <div><span className="text-muted">domain:</span> <span className="text-cyan-300">"IoT & AI Platforms"</span></div>
+                    <div><span className="text-muted">mission:</span> <span className="text-cyan-300">{`"Building high-performance UIs"`}</span>,</div>
+                    <div><span className="text-muted">domain:</span> <span className="text-cyan-300">{`"IoT & AI Platforms"`}</span></div>
                   </div>
                   <div>{'}'}</div>
                 </div>
